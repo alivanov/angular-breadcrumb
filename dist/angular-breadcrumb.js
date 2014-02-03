@@ -1,6 +1,6 @@
-/*! angular-breadcrumb - v0.1.0 - 2013-12-23
-* https://github.com/ncuillery/angular-breadcrumb
-* Copyright (c) 2013 Nicolas Cuillery; Licensed MIT */
+/*! angular-breadcrumb - v0.1.0 - 2014-02-03
+* https://github.com/alivanov/angular-breadcrumb
+* Copyright (c) 2014 Alexey Ivanov; Licensed MIT */
 angular.module('ncy-angular-breadcrumb', ['ui.router.state'])
     .provider('$breadcrumb', function() {
 

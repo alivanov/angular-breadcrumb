@@ -2,22 +2,22 @@
   "name": "angular-breadcrumb",
   "description": "Generate a breadcrumb from ui-router's states",
   "version": "0.1.0",
-  "homepage": "https://github.com/ncuillery/angular-breadcrumb",
+  "homepage": "https://github.com/alivanov/angular-breadcrumb",
   "author": {
-    "name": "Nicolas Cuillery",
-    "email": "nicolas.cuillery@gmail.com"
+    "name": "Alexey Ivanov",
+    "email": "ivanov@intspirit.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ncuillery/angular-breadcrumb.git"
+    "url": "git://github.com/alivanov/angular-breadcrumb.git"
   },
   "bugs": {
-    "url": "https://github.com/ncuillery/angular-breadcrumb/issues"
+    "url": "https://github.com/alivanov/angular-breadcrumb/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/ncuillery/angular-breadcrumb/blob/master/LICENSE-MIT"
+      "url": "https://github.com/alivanov/angular-breadcrumb/blob/master/LICENSE-MIT"
     }
   ],
   "main": "lib/angular-breadcrumb",
@@ -41,7 +41,9 @@
     "karma": "~0.10.2",
     "karma-coverage": "~0.1.0",
     "grunt-karma": "~0.6.2",
-    "coveralls": "~2.3.0"
+    "coveralls": "~2.3.0",
+    "grunt-cli": "0.1.x",
+    "bower": "1.2.x"
   },
   "keywords": []
 }
