@@ -7,7 +7,7 @@ describe('Directive', function() {
     beforeEach(function() {
         angular.module('ncy-directive-simple-test', function() {}).config(function($stateProvider) {
             $stateProvider
-                .state('A', {url: '/a', data: {breadcrumbLabel: 'State A'}})
+                .state('A', {url: '/a', data: {breadcrumbLabel: function() {return 'State A';}}})
                 .state('A.B', {url: '/b', data: {breadcrumbLabel: 'State B'}})
                 .state('A.B.C', {url: '/c', data: {breadcrumbLabel: 'State C'}})
                 .state('D', {parent: 'A.B.C', url: '/d', data: {breadcrumbLabel: 'State D'}}); // Explicit parent
