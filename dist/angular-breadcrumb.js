@@ -1,4 +1,4 @@
-/*! angular-breadcrumb - v0.1.0 - 2014-02-03
+/*! angular-breadcrumb - v0.1.0 - 2014-02-04
 * https://github.com/alivanov/angular-breadcrumb
 * Copyright (c) 2014 Alexey Ivanov; Licensed MIT */
 angular.module('ncy-angular-breadcrumb', ['ui.router.state'])
@@ -50,20 +50,50 @@ angular.module('ncy-angular-breadcrumb', ['ui.router.state'])
 
     })
     .directive('ncyBreadcrumb', function($state, $breadcrumb) {
+
+        var getBreadcrumbString = function (breadcrumb) {
+            if(typeof breadcrumb === 'function') {
+                return breadcrumb($state.params);
+            } else {
+                return breadcrumb;
+            }
+        };
+
+        var getBreadcrumbSeparator = function (separator) {
+            if(typeof separator === 'undefined') {
+                return ' / ';
+            } else {
+                return separator;
+            }
+        };
+
         return function(scope, element) {
-
-            scope.$watch(function() { return $state.current; }, function() {
+            var handler = function() {
                 var chain = $breadcrumb.getStatesChain();
-                var stateNames = [];
-                angular.forEach(chain, function(value) {
-                    if(value.data && value.data.ncyBreadcrumbLabel) {
-                        stateNames.push(value.data.ncyBreadcrumbLabel);
-                    } else {
-                        stateNames.push(value.name);
-                    }
-                });
-                element.text(stateNames.join(' / '));
-            }, true);
+                var breadcrumbHTML = "";
+                var stateObj = {};
+                var breadcrumbSeparator;
 
+                for (var i = 0; i < chain.length ; i++) {
+                    stateObj = chain[i];
+
+                    if (!stateObj.data) {
+                        stateObj.breadcrumbString = stateObj.name;
+                        breadcrumbSeparator = ' / ';
+                    } else {
+                        stateObj.breadcrumbString = getBreadcrumbString(stateObj.data.breadcrumbLabel);
+                        breadcrumbSeparator = getBreadcrumbSeparator(stateObj.data.separator);
+                    }
+
+                    if (i === chain.length-1) {
+                        breadcrumbHTML += '<span>' + stateObj.breadcrumbString + '</span>';
+                    } else {
+                        breadcrumbHTML += '<a href="#!' + stateObj.url + '">' + stateObj.breadcrumbString + '</a><span> ' + breadcrumbSeparator  + ' </span>';
+                    }
+                }
+                element.html(breadcrumbHTML);
+            };
+            scope.$watch(function() { return $state.current; }, handler, true);
+            scope.$watch(function() { return $state.params; }, handler, true);
         };
     });

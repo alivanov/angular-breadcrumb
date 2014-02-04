@@ -20,7 +20,7 @@ angular.module('ncy-sample', ['ui.router.state', 'ncy-angular-breadcrumb'])
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
         data: {
-          ncyBreadcrumbLabel: 'Home'
+          breadcrumbLabel: 'Home'
         }
       })
       .state('booking', {
@@ -28,7 +28,7 @@ angular.module('ncy-sample', ['ui.router.state', 'ncy-angular-breadcrumb'])
         templateUrl: 'views/booking_list.html',
         controller: 'BookingListCtrl',
         data: {
-          ncyBreadcrumbLabel: 'Reservations'
+          breadcrumbLabel: 'Reservations'
         }
       })
       .state('room', {
@@ -41,7 +41,7 @@ angular.module('ncy-sample', ['ui.router.state', 'ncy-angular-breadcrumb'])
         templateUrl: 'views/room_list.html',
         controller: 'RoomListCtrl',
         data: {
-          ncyBreadcrumbLabel: 'Rooms'
+          breadcrumbLabel: 'Rooms'
         }
       })
       .state('room.detail', {
@@ -53,7 +53,7 @@ angular.module('ncy-sample', ['ui.router.state', 'ncy-angular-breadcrumb'])
           }
         },
         data: {
-          ncyBreadcrumbLabel: 'Room TODO'
+          breadcrumbLabel: 'Room TODO'
         }
       })
       .state('room.detail.edit', {
@@ -65,7 +65,7 @@ angular.module('ncy-sample', ['ui.router.state', 'ncy-angular-breadcrumb'])
           }
         },
         data: {
-          ncyBreadcrumbLabel: 'Editing'
+          breadcrumbLabel: 'Editing'
         }
       });
 
